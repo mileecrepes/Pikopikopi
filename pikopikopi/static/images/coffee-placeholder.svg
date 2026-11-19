@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 440" role="img" aria-label="Ilustrasi cangkir kopi">
+ <defs>
+  <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#e8f3fb"/><stop offset="1" stop-color="#f3e9dc"/></linearGradient>
+  <linearGradient id="cup" x1="0" x2="1"><stop stop-color="#fffefb"/><stop offset=".55" stop-color="#f2e9de"/><stop offset="1" stop-color="#d9c8b6"/></linearGradient>
+  <linearGradient id="coffee" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a8754d"/><stop offset="1" stop-color="#542f22"/></linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="12"/></filter>
+ </defs>
+ <rect width="600" height="440" rx="28" fill="url(#bg)"/>
+ <circle cx="490" cy="80" r="52" fill="#4298de" opacity=".12"/><circle cx="100" cy="340" r="68" fill="#906441" opacity=".1"/>
+ <ellipse cx="292" cy="358" rx="166" ry="24" fill="#1e314b" opacity=".13" filter="url(#shadow)"/>
+ <path d="M404 170h35c38 0 52 22 52 53s-22 56-57 56h-38" fill="none" stroke="#b99d82" stroke-width="26" stroke-linecap="round"/>
+ <path d="M141 151h268l-23 165c-5 43-32 68-78 68H243c-45 0-72-25-78-68z" fill="url(#cup)" stroke="#1e314b" stroke-width="4"/>
+ <path d="M151 168h248l-9 57H159z" fill="url(#coffee)"/>
+ <path d="M151 166c22-15 48 14 75 0s51-15 78 0 49 14 95 0" fill="none" stroke="#d5a879" stroke-width="8" stroke-linecap="round"/>
+ <path d="M278 128c-20-21 15-28 0-50M323 126c-16-18 14-27 3-47" fill="none" stroke="#fffefb" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+ <path d="M267 252c-27-27-61 12-28 38l28 24 29-24c32-27-2-65-29-38z" fill="#c96a45" opacity=".9"/>
+ <text x="300" y="415" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" letter-spacing="4" fill="#1e314b" opacity=".72">YOUR NEXT CUP</text>
+</svg>

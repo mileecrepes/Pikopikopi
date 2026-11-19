@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#4298de">
+  <title>Admin Pikopikopi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="admin-body">
+  <header class="site-header"><a class="brand" href="/"><span class="brand-mark"><span>✌</span><span>✌</span></span><span>Pikopikopi</span></a><a class="admin-back" href="/">← Kembali ke website</a></header>
+  <main class="admin-main section-wrap">
+    <div class="admin-heading"><div class="eyebrow eyebrow-brown">PIKOPIKOPI CONTROL ROOM</div><h1>Admin <em>workspace.</em></h1><p>Kelola banner sponsor dengan kata kunci pemicu dan perbarui dataset rekomendasi.</p></div>
+    <section class="admin-login-card" id="loginCard">
+      <div class="admin-card-top"><span class="admin-icon">⌘</span><div><h2>Admin sign in</h2><p>Area ini hanya untuk pengelola Pikopikopi.</p></div></div>
+      <form id="loginForm" class="admin-login-form"><label class="filter-field"><span class="field-label">Password admin</span><input type="password" id="adminPassword" placeholder="Masukkan password admin" required autocomplete="current-password"></label><button class="btn btn-primary" type="submit">Masuk ke dashboard <span>→</span></button></form>
+      <p class="form-message" id="loginMessage" role="status"></p>
+    </section>
+
+    <div id="adminDashboard" hidden>
+      <div class="admin-status-row"><div><span class="status-pip"></span><strong>Admin session aktif</strong><small>Perubahan tersimpan ke penyimpanan server.</small></div><button class="btn btn-outline btn-small" id="logoutButton">Keluar</button></div>
+      <div class="admin-dashboard-grid">
+        <section class="admin-card">
+          <div class="admin-card-top"><span class="admin-icon">✦</span><div><h2>Buat banner sponsor</h2><p>Banner akan muncul ketika kata kunci pencarian pengunjung cocok.</p></div></div>
+          <form id="bannerForm" class="admin-form">
+            <label class="filter-field"><span class="field-label">Nama sponsor</span><input id="sponsorName" required placeholder="Contoh: Kopi Sudut Kota"></label>
+            <label class="filter-field"><span class="field-label">Judul banner</span><input id="bannerTitle" required placeholder="Contoh: Temukan rasa baru minggu ini"></label>
+            <label class="filter-field"><span class="field-label">Deskripsi singkat</span><textarea id="bannerDescription" rows="3" placeholder="Teks singkat yang akan tampil di banner"></textarea></label>
+            <label class="filter-field"><span class="field-label">Kata kunci pemicu</span><input id="bannerKeywords" required placeholder="fruity, cold brew, iced coffee"><small>Pisahkan dengan koma. Banner tampil saat pencarian memuat salah satu kata kunci ini.</small></label>
+            <label class="filter-field"><span class="field-label">Link tujuan</span><input id="bannerUrl" type="url" placeholder="https://contoh.com"></label>
+            <label class="filter-field"><span class="field-label">Gambar banner (opsional)</span><input id="bannerImage" type="file" accept="image/png,image/jpeg,image/webp"><small>Format JPG, PNG, WEBP · maksimal 8 MB.</small></label>
+            <label class="check-line"><input type="checkbox" id="bannerActive" checked> Aktifkan banner setelah disimpan</label>
+            <button class="btn btn-primary" type="submit">Simpan banner <span>＋</span></button><p class="form-message" id="bannerMessage" role="status"></p>
+          </form>
+        </section>
+        <section class="admin-card dataset-card">
+          <div class="admin-card-top"><span class="admin-icon">▤</span><div><h2>Dataset survei</h2><p>File CSV disimpan di sisi server dan dipakai untuk menghitung ulang insight rekomendasi.</p></div></div>
+          <div class="dataset-metrics" id="datasetMetrics"><div><strong>—</strong><span>responden</span></div><div><strong>—</strong><span>gambar kopi</span></div></div>
+          <form id="datasetForm" class="admin-form"><label class="filter-field"><span class="field-label">Unggah dataset CSV baru</span><input type="file" id="datasetFile" accept=".csv,text/csv" required><small>Gunakan format survei Pikopikopi dengan kolom pertanyaan yang sama.</small></label><button class="btn btn-secondary" type="submit">Perbarui dataset <span>↑</span></button><p class="form-message" id="datasetMessage" role="status"></p></form>
+          <div class="dataset-note"><strong>Catatan privasi</strong><p>Website hanya memakai kolom preferensi minuman, karakter rasa, dan penilaian kopi. Kolom demografi yang tidak relevan tidak ditampilkan kepada pengunjung.</p></div>
+          <div class="dataset-note"><strong>Foto kopi</strong><p>Folder foto aktual belum ada pada berkas upload awal. Kamu bisa menambahkan foto langsung di sini atau menjalankan skrip pengunduh yang disertakan pada project. Pastikan setiap foto boleh digunakan dan kreditnya dicatat.</p></div>
+          <form id="coffeeImageForm" class="admin-form coffee-image-form">
+            <label class="filter-field"><span class="field-label">Jenis minuman</span><select id="coffeeImageLabel" required><option value="">Pilih jenis minuman</option></select></label>
+            <label class="filter-field"><span class="field-label">Pilih foto (bisa lebih dari satu)</span><input id="coffeeImageFiles" type="file" accept="image/png,image/jpeg,image/webp" multiple required><small>JPG, PNG, WEBP · maksimal 8 MB per foto.</small></label>
+            <label class="filter-field"><span class="field-label">Kredit / nama fotografer (opsional)</span><input id="coffeeImageCredit" placeholder="Contoh: Nama fotografer"></label>
+            <label class="filter-field"><span class="field-label">Lisensi penggunaan (opsional)</span><input id="coffeeImageLicense" placeholder="Contoh: CC BY-SA 4.0"></label>
+            <label class="filter-field"><span class="field-label">Link sumber foto (opsional)</span><input id="coffeeImageSource" type="url" placeholder="https://... "></label>
+            <button class="btn btn-secondary" type="submit">Unggah foto katalog <span>↑</span></button><p class="form-message" id="coffeeImageMessage" role="status"></p>
+          </form>
+        </section>
+      </div>
+      <section class="admin-card banner-list-card"><div class="admin-card-top"><span class="admin-icon">▣</span><div><h2>Banner tersimpan</h2><p>Aktifkan atau nonaktifkan kampanye kapan pun.</p></div></div><div id="bannerList" class="banner-list"><p class="muted">Memuat daftar banner...</p></div></section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="footer-checks"></div><div class="footer-content"><a class="brand brand-footer" href="/"><span class="brand-mark"><span>✌</span><span>✌</span></span><span>Pikopikopi</span></a><span class="footer-copy">Admin workspace · 2026</span></div></footer>
+  <script src="/static/js/admin.js" defer></script>
+</body>
+</html>

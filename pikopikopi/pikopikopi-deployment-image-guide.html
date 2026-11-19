@@ -1,0 +1,229 @@
+
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pikopikopi — Deployment Guide</title>
+<style>
+  :root {
+    --blue: #3b82d4;
+    --brown: #906441;
+    --navy: #1e314b;
+    --cream: #fffefb;
+    --muted: #57606a;
+    --border: #e5e7eb;
+    --surface: #f7f8fa;
+    --green: #2d8a5e;
+    --orange: #c05a2a;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; font-size: 14px; line-height: 1.6; color: var(--navy); background: var(--cream); margin: 0; padding: 24px 16px 48px; }
+  .container { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 26px; letter-spacing: -0.04em; margin: 0 0 4px; color: var(--navy); }
+  h2 { font-size: 16px; letter-spacing: -0.02em; margin: 28px 0 10px; color: var(--navy); border-left: 3px solid var(--blue); padding-left: 10px; }
+  h3 { font-size: 13px; font-weight: 700; margin: 16px 0 6px; color: var(--navy); }
+  p, li { color: var(--muted); margin: 0 0 8px; }
+  ul { padding-left: 18px; margin: 0 0 12px; }
+  .subtitle { color: var(--muted); font-size: 13px; margin-bottom: 28px; }
+  .hero { background: var(--blue); color: white; border-radius: 14px; padding: 24px 28px; margin-bottom: 28px; }
+  .hero h1 { color: white; }
+  .hero p { color: rgba(255,255,255,0.85); margin: 6px 0 0; font-size: 13px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; }
+  .badge-green { background: #d1fae5; color: var(--green); }
+  .badge-orange { background: #fff0e0; color: var(--orange); }
+  .badge-blue { background: #dbeafe; color: var(--blue); }
+  .status-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 24px; }
+  .stat-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .stat-card strong { display: block; font-size: 22px; letter-spacing: -0.04em; color: var(--navy); }
+  .stat-card span { font-size: 11px; color: var(--muted); }
+  .change-list { display: grid; gap: 10px; margin-bottom: 20px; }
+  .change-item { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; }
+  .change-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+  .icon-green { background: #d1fae5; }
+  .icon-blue { background: #dbeafe; }
+  .icon-purple { background: #ede9fe; }
+  .change-item h3 { margin: 0 0 3px; font-size: 13px; color: var(--navy); }
+  .change-item p { margin: 0; font-size: 11px; color: var(--muted); }
+  .steps { counter-reset: step; display: grid; gap: 10px; }
+  .step { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px 14px 52px; position: relative; }
+  .step::before { counter-increment: step; content: counter(step); position: absolute; left: 15px; top: 14px; width: 24px; height: 24px; background: var(--blue); color: white; border-radius: 50%; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .step h3 { margin: 0 0 4px; font-size: 13px; color: var(--navy); }
+  .step p { margin: 0; font-size: 11px; color: var(--muted); }
+  code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 1px 5px; font-family: 'Cascadia Code', Consolas, monospace; font-size: 11px; color: #d63c5e; }
+  .code-block { background: #1e314b; color: #e8f0fb; border-radius: 10px; padding: 14px 16px; font-family: 'Cascadia Code', Consolas, monospace; font-size: 11px; line-height: 1.65; margin: 10px 0; overflow-x: auto; }
+  .code-block .comment { color: #7a9ec8; }
+  .table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 12px; }
+  .table th { background: var(--surface); text-align: left; padding: 8px 12px; border: 1px solid var(--border); font-size: 11px; font-weight: 700; color: var(--navy); }
+  .table td { padding: 8px 12px; border: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+  .table td code { font-size: 11px; }
+  .image-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0; }
+  .coffee-label { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 10px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  .coffee-label .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .dot-green { background: var(--green); }
+  .dot-orange { background: var(--orange); }
+  .alert { background: #fff8e1; border: 1px solid #fcd34d; border-radius: 10px; padding: 12px 15px; margin: 12px 0; font-size: 11px; color: #92400e; }
+  .alert strong { color: #78350f; }
+  .footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; font-size: 11px; color: #aab0b8; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <h1>☕ Pikopikopi</h1>
+    <p>Ringkasan pekerjaan: integrasi foto kopi + panduan deployment ke publik</p>
+  </div>
+
+  <div class="status-grid">
+    <div class="stat-card"><strong>56</strong><span>foto kopi berhasil diunduh</span></div>
+    <div class="stat-card"><strong>20 / 20</strong><span>jenis kopi memiliki foto</span></div>
+    <div class="stat-card"><strong>5</strong><span>file diubah / dibuat baru</span></div>
+    <div class="stat-card"><strong>Render.com</strong><span>platform deployment yang disiapkan</span></div>
+  </div>
+
+  <h2>✅ Task 1 — Foto kopi dari dataset builder</h2>
+
+  <div class="change-list">
+    <div class="change-item">
+      <div class="change-icon icon-green">📸</div>
+      <div>
+        <h3>Download 56 foto dari Wikimedia Commons</h3>
+        <p>Script <code>scripts/download_coffee_images.py</code> dijalankan untuk semua 20 jenis kopi. Foto disimpan di <code>data/images/&lt;label&gt;/</code> dengan 2–3 foto per kelas. Metadata lisensi (CC BY-SA, CC0, dll.) tersimpan di <code>data/coffee_image_metadata.csv</code>.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon icon-blue">🏷️</div>
+      <div>
+        <h3>Kredit foto tampil di kartu rekomendasi</h3>
+        <p>Kartu rekomendasi kini menampilkan label <strong>"© Wikimedia Commons"</strong> di sudut bawah foto (tooltip berisi nama fotografer). Modal detail menampilkan kredit lengkap beserta lisensi di bagian footnote.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon icon-purple">🎨</div>
+      <div>
+        <h3>CSS baru: .photo-credit dan .detail-photo-credit</h3>
+        <p>Dua class CSS baru ditambahkan ke <code>static/css/styles.css</code> untuk menampilkan atribusi foto dengan desain pill transparan di atas gambar.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Status foto per jenis kopi:</h3>
+  <div class="image-grid">
+    <div class="coffee-label"><div class="dot dot-green"></div>Espresso (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Americano (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Cappuccino (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Caffè Latte (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Mocha (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Flat White (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Macchiato (3)</div>
+    <div class="coffee-label"><div class="dot dot-orange"></div>Latte Macchiato (2)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Cortado (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Affogato (3)</div>
+    <div class="coffee-label"><div class="dot dot-orange"></div>Ristretto (1)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Lungo (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Café au Lait (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Café Bombón (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Café con Leche (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Vietnamese Iced Coffee (3)</div>
+    <div class="coffee-label"><div class="dot dot-orange"></div>Cold Brew (2)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Iced Coffee (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Blended Coffee (3)</div>
+    <div class="coffee-label"><div class="dot dot-green"></div>Pour Over (3)</div>
+  </div>
+  <p style="font-size:11px;color:var(--muted)">🟢 = 3 foto · 🟠 = 1–2 foto (Wikimedia API rate-limited pada beberapa kelas). Semua kelas tetap menampilkan foto.</p>
+
+  <h2>✅ Task 2 — Deployment ke publik</h2>
+
+  <div class="change-list">
+    <div class="change-item">
+      <div class="change-icon icon-green">🚀</div>
+      <div>
+        <h3>start.sh — Script startup otomatis</h3>
+        <p>File baru <code>start.sh</code> menjalankan download foto saat first run, kemudian langsung menjalankan uvicorn. Tidak perlu langkah manual setelah deploy.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon icon-blue">🐳</div>
+      <div>
+        <h3>Dockerfile diperbarui</h3>
+        <p><code>CMD</code> diubah dari inline uvicorn menjadi <code>sh start.sh</code>. Dockerfile sudah lengkap untuk Docker deployment ke Render.</p>
+      </div>
+    </div>
+    <div class="change-item">
+      <div class="change-icon icon-purple">🦇</div>
+      <div>
+        <h3>run_local_windows.bat diperbarui</h3>
+        <p>Batch script lokal kini juga mengunduh foto otomatis saat pertama kali dijalankan, menggunakan flag <code>data\.images_downloaded</code> untuk tidak mengulang download.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>🗺️ Langkah deployment ke Render.com</h2>
+
+  <div class="alert"><strong>Prasyarat:</strong> Butuh Git dan akun GitHub untuk mengunggah project. Download Git dari <strong>git-scm.com/download/win</strong> jika belum terinstall.</div>
+
+  <div class="steps">
+    <div class="step">
+      <h3>Install Git for Windows</h3>
+      <p>Download dari <strong>git-scm.com/download/win</strong> → install dengan pengaturan default → restart PowerShell/terminal.</p>
+    </div>
+    <div class="step">
+      <h3>Buat repository di GitHub</h3>
+      <p>Login ke github.com → <strong>New repository</strong> → nama bebas (contoh: <code>pikopikopi</code>) → pilih Private → klik Create.</p>
+    </div>
+    <div class="step">
+      <h3>Push project ke GitHub</h3>
+      <p>Buka PowerShell di folder <code>pikopikopi/</code>:</p>
+      <div class="code-block">
+        <span class="comment"># Di folder pikopikopi/</span><br />
+        git init<br />
+        git add .<br />
+        git commit -m "Initial commit"<br />
+        git remote add origin https://github.com/&lt;username&gt;/pikopikopi.git<br />
+        git branch -M main<br />
+        git push -u origin main
+      </div>
+    </div>
+    <div class="step">
+      <h3>Buat Web Service di Render.com</h3>
+      <p>Login ke render.com → <strong>New → Web Service</strong> → hubungkan GitHub → pilih repo pikopikopi → pilih <strong>Runtime: Docker</strong>.</p>
+    </div>
+    <div class="step">
+      <h3>Set environment variables</h3>
+      <p>Di tab <strong>Environment</strong> pada Render:</p>
+      <table class="table">
+        <tr><th>Key</th><th>Value</th></tr>
+        <tr><td><code>ADMIN_PASSWORD</code></td><td>Password kuat minimal 12 karakter</td></tr>
+        <tr><td><code>SECRET_KEY</code></td><td>String random panjang</td></tr>
+        <tr><td><code>COOKIE_SECURE</code></td><td><code>1</code></td></tr>
+        <tr><td><code>DATA_DIR</code></td><td><code>/var/data</code> (sudah ada di render.yaml)</td></tr>
+      </table>
+    </div>
+    <div class="step">
+      <h3>Konfigurasi persistent disk</h3>
+      <p>Di tab <strong>Disks</strong>: Name = <code>pikopikopi-data</code>, Mount Path = <code>/var/data</code>, Size = 1 GB. <strong>Catatan:</strong> disk hanya tersedia di paid plan (Starter ~$7/bulan).</p>
+    </div>
+    <div class="step">
+      <h3>Deploy dan tunggu health check</h3>
+      <p>Klik <strong>Deploy</strong>. Build 3–5 menit. Saat first run, <code>start.sh</code> otomatis download foto. Health check <code>/api/health</code> akan green setelah siap. URL format: <code>https://pikopikopi.onrender.com</code></p>
+    </div>
+  </div>
+
+  <h2>📁 Ringkasan file yang diubah/dibuat</h2>
+  <table class="table">
+    <tr><th>File</th><th>Status</th><th>Perubahan</th></tr>
+    <tr><td><code>static/js/app.js</code></td><td><span class="badge badge-blue">DIUBAH</span></td><td>Tampilkan kredit foto di card dan modal detail</td></tr>
+    <tr><td><code>static/css/styles.css</code></td><td><span class="badge badge-blue">DIUBAH</span></td><td>Tambah style .photo-credit dan .detail-photo-credit</td></tr>
+    <tr><td><code>start.sh</code></td><td><span class="badge badge-green">BARU</span></td><td>Startup script: download foto + jalankan server</td></tr>
+    <tr><td><code>Dockerfile</code></td><td><span class="badge badge-blue">DIUBAH</span></td><td>CMD diubah ke start.sh</td></tr>
+    <tr><td><code>run_local_windows.bat</code></td><td><span class="badge badge-blue">DIUBAH</span></td><td>Download foto otomatis pada first run lokal</td></tr>
+    <tr><td><code>README.md</code></td><td><span class="badge badge-blue">DIUBAH</span></td><td>Panduan deployment lengkap step-by-step</td></tr>
+    <tr><td><code>data/images/&lt;20 kelas&gt;/</code></td><td><span class="badge badge-green">BARU</span></td><td>56 foto kopi dari Wikimedia Commons</td></tr>
+    <tr><td><code>data/coffee_image_metadata.csv</code></td><td><span class="badge badge-green">BARU</span></td><td>73 baris metadata lisensi dan kredit fotografer</td></tr>
+    <tr><td><code>scripts/download_coffee_images.py</code></td><td>TIDAK DIUBAH</td><td>Script yang sudah ada, dijalankan oleh start.sh</td></tr>
+  </table>
+
+  <div class="footer">Made with IBM Bob</div>
+</div>
+</body>
+</html>

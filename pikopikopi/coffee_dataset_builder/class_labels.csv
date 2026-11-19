@@ -1,0 +1,21 @@
+label,display_name,target_images
+espresso,Espresso,5
+americano,Americano,5
+cappuccino,Cappuccino,5
+caffe_latte,Caffe Latte,5
+mocha,Caffe Mocha,5
+flat_white,Flat White,5
+macchiato,Macchiato,5
+latte_macchiato,Latte Macchiato,5
+cortado,Cortado,5
+affogato,Affogato,5
+ristretto,Ristretto,5
+lungo,Lungo,5
+cafe_au_lait,Cafe au Lait,5
+cafe_bombon,Cafe Bombon,5
+cafe_con_leche,Cafe con Leche,5
+vietnamese_iced_coffee,Vietnamese Iced Coffee,5
+cold_brew,Cold Brew,5
+iced_coffee,Iced Coffee,5
+blended_coffee,Frappuccino / Blended Coffee,5
+irish_coffee,Irish Coffee,5

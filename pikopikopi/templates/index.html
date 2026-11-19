@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#4298de" />
+  <meta name="description" content="Pikopikopi membantu menemukan pilihan kopi berdasarkan preferensi rasa." />
+  <title>Pikopikopi — Temukan kopi favoritmu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Pikopikopi beranda">
+      <span class="brand-mark" aria-hidden="true"><span>✌</span><span>✌</span></span>
+      <span>Pikopikopi</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#cara-kerja">Cara kerja</a>
+      <a href="#jelajahi">Jelajahi kopi</a>
+      <a href="#tentang">Tentang</a>
+      <a class="nav-admin" href="/admin">Admin <span aria-hidden="true">↗</span></a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR NEXT CUP STARTS HERE</div>
+        <h1>Temukan kopi yang <em>pas</em> dengan seleramu.</h1>
+        <p class="hero-lead">Setiap orang punya selera kopi yang berbeda. Ceritakan karakter rasa yang kamu suka, dan biarkan Pikopikopi membantumu menemukan pilihan berikutnya.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#jelajahi">Cari kopi favoritku <span>↗</span></a>
+          <a class="text-link" href="#cara-kerja">Kenali cara kerjanya <span>↓</span></a>
+        </div>
+        <div class="hero-proof"><div class="proof-avatars"><span>☕</span><span>♡</span><span>✦</span></div><p><strong id="respondentCount">4.042</strong> respons survei menjadi awal rekomendasi kami.</p></div>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi beberapa jenis kopi">
+        <div class="art-sticker sticker-top">SIP, SIP, HOORAY!</div>
+        <div class="coffee-orbit orbit-one"></div><div class="coffee-orbit orbit-two"></div>
+        <div class="cup cup-back cup-back-one"><div class="cup-liquid liquid-latte"></div><div class="cup-handle"></div></div>
+        <div class="cup cup-back cup-back-two"><div class="cup-liquid liquid-black"></div><div class="cup-handle"></div></div>
+        <div class="cup cup-front"><div class="cup-foam"></div><div class="cup-liquid liquid-mocha"></div><div class="cup-heart">♥</div><div class="cup-handle"></div></div>
+        <div class="bean bean-one"></div><div class="bean bean-two"></div><div class="bean bean-three"></div>
+        <div class="art-caption">A little coffee<br>goes a long way.</div>
+      </div>
+    </section>
+
+    <section class="stats-strip" aria-label="Ringkasan dataset">
+      <div><strong id="statResponses">4.042</strong><span>respons survei</span></div>
+      <div><strong>20</strong><span>jenis minuman kopi</span></div>
+      <div><strong>Top 5</strong><span>rekomendasi personal</span></div>
+      <div><strong>Personal</strong><span>diracik dari filter pilihanmu</span></div>
+    </section>
+
+    <section class="explore-section section-wrap" id="jelajahi">
+      <div class="section-heading">
+        <div><div class="eyebrow eyebrow-brown">LET'S FIND YOUR MATCH</div><h2>Rasa kopi seperti apa <em>favoritmu?</em></h2></div>
+        <p>Atur preferensimu di bawah ini. Kami akan menyusun rekomendasi berdasarkan kombinasi karakter rasa dan data survei.</p>
+      </div>
+
+      <form class="filter-panel" id="filterForm">
+        <div class="filter-topline">
+          <div class="filter-title"><span class="filter-icon">⌕</span><div><h3>Racik preferensimu</h3><p>Pilih yang paling menggambarkan seleramu.</p></div></div>
+          <button class="reset-button" type="reset" id="resetFilters">Atur ulang <span>↺</span></button>
+        </div>
+        <div class="site-search-row">
+          <span class="search-glass" aria-hidden="true">⌕</span>
+          <input type="search" id="searchKeyword" name="search" placeholder="Cari jenis kopi, karakter rasa, atau kata kunci promo..." autocomplete="off">
+          <span class="search-hint">SEARCH</span>
+        </div>
+        <div class="filter-grid">
+          <label class="filter-field field-wide">
+            <span class="field-label">Karakter rasa yang kamu suka</span>
+            <select id="taste" name="taste"><option value="">Bebas — kejutan untukku</option><option value="fruity">Fruity</option><option value="chocolatey">Chocolatey</option><option value="floral">Floral</option><option value="full_bodied">Full bodied</option><option value="sweet">Sweet</option><option value="nutty">Nutty</option><option value="bold">Bold</option><option value="caramelized">Caramelized</option><option value="bright">Bright</option><option value="juicy">Juicy</option></select>
+          </label>
+          <label class="filter-field">
+            <span class="field-label">Jenis minuman</span>
+            <select id="drinkType" name="drink_type"><option value="">Semua jenis kopi</option></select>
+          </label>
+          <label class="filter-field">
+            <span class="field-label">Tingkat roast</span>
+            <select id="roast" name="roast"><option value="">Bebas</option><option value="light">Light roast</option><option value="medium">Medium roast</option><option value="dark">Dark roast</option></select>
+          </label>
+        </div>
+        <div class="range-grid">
+          <div class="range-field"><div class="range-heading"><label for="bitterness">Tingkat pahit</label><span id="bitternessValue">Bebas</span></div><select id="bitterness" name="bitterness" class="range-select"><option value="">Bebas</option><option value="1">1 · Sangat ringan</option><option value="2">2 · Ringan</option><option value="3">3 · Sedang</option><option value="4">4 · Kuat</option><option value="5">5 · Sangat kuat</option></select></div>
+          <div class="range-field"><div class="range-heading"><label for="acidity">Tingkat acidity</label><span id="acidityValue">Bebas</span></div><select id="acidity" name="acidity" class="range-select"><option value="">Bebas</option><option value="1">1 · Rendah</option><option value="2">2 · Cenderung rendah</option><option value="3">3 · Sedang</option><option value="4">4 · Cenderung tinggi</option><option value="5">5 · Tinggi</option></select></div>
+          <div class="range-field"><div class="range-heading"><label for="strength">Kekuatan rasa</label><span id="strengthValue">Bebas</span></div><select id="strength" name="strength" class="range-select"><option value="">Bebas</option><option value="1">1 · Sangat ringan</option><option value="2">2 · Ringan</option><option value="3">3 · Medium</option><option value="4">4 · Kuat</option><option value="5">5 · Sangat kuat</option></select></div>
+        </div>
+        <div class="filter-bottom">
+          <p><span class="info-dot">i</span> Jenis bean belum tersedia pada dataset yang diunggah.</p>
+          <button class="btn btn-primary filter-submit" type="submit">Temukan rekomendasiku <span>→</span></button>
+        </div>
+      </form>
+
+      <div class="results-header" id="resultsHeader">
+        <div><div class="eyebrow eyebrow-brown">PICKED FOR YOUR PALATE</div><h2>Rekomendasi <em>untukmu</em></h2><p id="resultsSubtitle">Pilihan kopi yang bisa kamu eksplorasi hari ini.</p></div>
+        <div class="result-controls"><span>Tampilkan</span><div class="segmented"><button type="button" class="segment active" data-limit="5">Top 5</button><button type="button" class="segment" data-limit="10">Top 10</button></div></div>
+      </div>
+      <div id="sponsorSlot" class="sponsor-slot" hidden></div>
+      <div id="recommendationGrid" class="recommendation-grid" aria-live="polite">
+        <div class="loading-card"><span class="loading-spinner"></span><p>Menyiapkan rekomendasi kopi...</p></div>
+      </div>
+      <p class="dataset-disclaimer"><span>ⓘ</span> Profil pahit, acidity, body, dan roast pada tiap jenis minuman merupakan estimasi karakter umum. Data survei digunakan untuk membaca preferensi dan popularitas; bukan untuk mengklaim hasil pengukuran langsung pada setiap minuman.</p>
+    </section>
+
+    <section class="how-section" id="cara-kerja">
+      <div class="section-wrap how-inner">
+        <div class="how-visual"><div class="how-circle circle-a"></div><div class="how-circle circle-b"></div><div class="how-coffee-icon">☕</div><span class="how-spark spark-a">✦</span><span class="how-spark spark-b">✳</span><div class="how-note">your taste,<br>your story.</div></div>
+        <div class="how-copy"><div class="eyebrow eyebrow-white">HOW PIKOPIKOPI WORKS</div><h2>Bukan sekadar kopi.<br><em>Ini soal seleramu.</em></h2><p>Pikopikopi menggabungkan preferensi yang kamu pilih dengan insight dari survei pecinta kopi. Hasilnya adalah daftar minuman yang bisa menjadi titik awal untuk menemukan rasa favoritmu.</p>
+          <div class="how-steps"><div><span>01</span><p><strong>Pilih karakter rasa</strong><small>Tentukan taste notes dan intensitas yang kamu suka.</small></p></div><div><span>02</span><p><strong>Temukan kecocokan</strong><small>Sistem mengurutkan pilihan dengan skor kecocokan estimasi.</small></p></div><div><span>03</span><p><strong>Jelajahi rasa baru</strong><small>Baca deskripsi dan coba minuman yang paling menarik bagimu.</small></p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section section-wrap" id="tentang">
+      <div class="about-card"><div class="about-logo">Piko<span>piko</span>pi</div><div><div class="eyebrow eyebrow-brown">A LITTLE NOTE FROM US</div><h2>Good coffee is a <em>personal thing.</em></h2><p>Pikopikopi dibuat untuk membantu kamu mengenali preferensi rasa dan menemukan pilihan kopi yang lebih sesuai. Selamat menjelajah, satu cangkir dalam satu waktu.</p><a href="#jelajahi" class="text-link">Mulai eksplorasi <span>↗</span></a></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-checks" aria-hidden="true"></div><div class="footer-content"><a class="brand brand-footer" href="/"><span class="brand-mark"><span>✌</span><span>✌</span></span><span>Pikopikopi</span></a><p>Find your cup. Find your happy.</p><span class="footer-copy">© 2026 Pikopikopi</span></div></footer>
+
+  <dialog class="detail-dialog" id="detailDialog"><button class="dialog-close" id="dialogClose" aria-label="Tutup">×</button><div id="detailContent"></div></dialog>
+  <script src="/static/js/app.js" defer></script>
+</body>
+</html>

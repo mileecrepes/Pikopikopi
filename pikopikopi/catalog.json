@@ -1,0 +1,399 @@
+[
+  {
+    "label": "espresso",
+    "display_name": "Espresso",
+    "aliases": [
+      "espresso"
+    ],
+    "tags": [
+      "bold",
+      "chocolatey",
+      "caramelized"
+    ],
+    "bitterness": 4,
+    "acidity": 3,
+    "strength": 5,
+    "roast": "dark",
+    "body": "Full body",
+    "description": "Kopi pekat dengan rasa intens, crema tipis, dan karakter pahit yang tegas.",
+    "serving": "Disajikan dalam takaran kecil tanpa tambahan susu."
+  },
+  {
+    "label": "americano",
+    "display_name": "Americano",
+    "aliases": [
+      "americano"
+    ],
+    "tags": [
+      "bold",
+      "bright",
+      "nutty"
+    ],
+    "bitterness": 3,
+    "acidity": 3,
+    "strength": 3,
+    "roast": "medium",
+    "body": "Light–medium body",
+    "description": "Espresso yang diencerkan dengan air, terasa lebih ringan tetapi tetap punya karakter kopi.",
+    "serving": "Nikmat disajikan panas atau dingin."
+  },
+  {
+    "label": "cappuccino",
+    "display_name": "Cappuccino",
+    "aliases": [
+      "cappuccino"
+    ],
+    "tags": [
+      "chocolatey",
+      "nutty",
+      "sweet"
+    ],
+    "bitterness": 2,
+    "acidity": 2,
+    "strength": 3,
+    "roast": "medium",
+    "body": "Creamy, medium body",
+    "description": "Perpaduan espresso, susu, dan foam yang seimbang dengan tekstur lembut.",
+    "serving": "Umumnya disajikan panas dengan lapisan foam susu."
+  },
+  {
+    "label": "caffe_latte",
+    "display_name": "Caffè Latte",
+    "aliases": [
+      "latte",
+      "caffe latte",
+      "café latte"
+    ],
+    "tags": [
+      "sweet",
+      "nutty",
+      "caramelized"
+    ],
+    "bitterness": 2,
+    "acidity": 2,
+    "strength": 2,
+    "roast": "medium",
+    "body": "Creamy, medium body",
+    "description": "Espresso dengan lebih banyak susu sehingga rasanya lembut dan relatif ringan.",
+    "serving": "Dapat disajikan panas atau iced."
+  },
+  {
+    "label": "mocha",
+    "display_name": "Caffè Mocha",
+    "aliases": [
+      "mocha",
+      "cafe mocha"
+    ],
+    "tags": [
+      "chocolatey",
+      "sweet",
+      "caramelized"
+    ],
+    "bitterness": 3,
+    "acidity": 1,
+    "strength": 3,
+    "roast": "medium",
+    "body": "Creamy, medium body",
+    "description": "Kopi susu dengan sentuhan cokelat yang memberi rasa manis dan kaya.",
+    "serving": "Biasanya disajikan dengan susu dan cokelat."
+  },
+  {
+    "label": "flat_white",
+    "display_name": "Flat White",
+    "aliases": [
+      "flat white"
+    ],
+    "tags": [
+      "nutty",
+      "chocolatey",
+      "full_bodied"
+    ],
+    "bitterness": 3,
+    "acidity": 2,
+    "strength": 4,
+    "roast": "medium",
+    "body": "Silky, full body",
+    "description": "Espresso dengan microfoam susu yang halus dan rasa kopi yang tetap terasa.",
+    "serving": "Disajikan dalam cangkir kecil dengan tekstur susu lembut."
+  },
+  {
+    "label": "macchiato",
+    "display_name": "Macchiato",
+    "aliases": [
+      "macchiato"
+    ],
+    "tags": [
+      "bold",
+      "caramelized",
+      "chocolatey"
+    ],
+    "bitterness": 4,
+    "acidity": 2,
+    "strength": 4,
+    "roast": "dark",
+    "body": "Medium–full body",
+    "description": "Espresso yang diberi sedikit foam atau susu untuk melembutkan rasa tanpa menghilangkan karakter kopinya.",
+    "serving": "Porsi kecil dengan rasa espresso yang dominan."
+  },
+  {
+    "label": "latte_macchiato",
+    "display_name": "Latte Macchiato",
+    "aliases": [
+      "latte macchiato"
+    ],
+    "tags": [
+      "sweet",
+      "caramelized",
+      "nutty"
+    ],
+    "bitterness": 2,
+    "acidity": 1,
+    "strength": 2,
+    "roast": "light",
+    "body": "Creamy, light body",
+    "description": "Susu hangat yang diberi espresso, menghasilkan rasa susu yang lembut dengan lapisan kopi.",
+    "serving": "Sering disajikan berlapis dalam gelas tinggi."
+  },
+  {
+    "label": "cortado",
+    "display_name": "Cortado",
+    "aliases": [
+      "cortado"
+    ],
+    "tags": [
+      "nutty",
+      "chocolatey",
+      "full_bodied"
+    ],
+    "bitterness": 3,
+    "acidity": 2,
+    "strength": 4,
+    "roast": "medium",
+    "body": "Silky, medium body",
+    "description": "Espresso yang dipadukan dengan susu dalam jumlah relatif seimbang untuk mengurangi tajamnya rasa kopi.",
+    "serving": "Disajikan dalam gelas kecil."
+  },
+  {
+    "label": "affogato",
+    "display_name": "Affogato",
+    "aliases": [
+      "affogato"
+    ],
+    "tags": [
+      "sweet",
+      "chocolatey",
+      "bold"
+    ],
+    "bitterness": 3,
+    "acidity": 1,
+    "strength": 2,
+    "roast": "medium",
+    "body": "Creamy, full body",
+    "description": "Espresso yang dituangkan di atas es krim, memadukan rasa kopi dengan manis dan creamy.",
+    "serving": "Disajikan sebagai dessert kopi."
+  },
+  {
+    "label": "ristretto",
+    "display_name": "Ristretto",
+    "aliases": [
+      "ristretto"
+    ],
+    "tags": [
+      "bold",
+      "fruity",
+      "bright"
+    ],
+    "bitterness": 4,
+    "acidity": 4,
+    "strength": 5,
+    "roast": "light",
+    "body": "Full body",
+    "description": "Ekstraksi espresso yang lebih pendek dengan rasa pekat dan karakter yang dapat terasa manis maupun intens.",
+    "serving": "Disajikan dalam takaran kecil."
+  },
+  {
+    "label": "lungo",
+    "display_name": "Lungo",
+    "aliases": [
+      "lungo"
+    ],
+    "tags": [
+      "bright",
+      "nutty",
+      "bold"
+    ],
+    "bitterness": 3,
+    "acidity": 4,
+    "strength": 4,
+    "roast": "light",
+    "body": "Medium body",
+    "description": "Espresso dengan waktu ekstraksi lebih panjang, menghasilkan volume lebih besar dan karakter berbeda dari espresso.",
+    "serving": "Disajikan dalam cangkir kecil hingga sedang."
+  },
+  {
+    "label": "cafe_au_lait",
+    "display_name": "Café au Lait",
+    "aliases": [
+      "cafe au lait",
+      "café au lait"
+    ],
+    "tags": [
+      "nutty",
+      "sweet",
+      "full_bodied"
+    ],
+    "bitterness": 2,
+    "acidity": 2,
+    "strength": 2,
+    "roast": "medium",
+    "body": "Medium body",
+    "description": "Kopi seduh yang dicampur susu hangat dengan rasa yang lembut dan seimbang.",
+    "serving": "Umumnya menggunakan kopi seduh, bukan espresso."
+  },
+  {
+    "label": "cafe_bombon",
+    "display_name": "Café Bombón",
+    "aliases": [
+      "cafe bombon",
+      "café bombón",
+      "bombon"
+    ],
+    "tags": [
+      "sweet",
+      "caramelized",
+      "chocolatey"
+    ],
+    "bitterness": 2,
+    "acidity": 1,
+    "strength": 3,
+    "roast": "medium",
+    "body": "Rich, creamy body",
+    "description": "Espresso yang dipadukan dengan susu kental manis sehingga menghasilkan rasa manis dan tekstur kaya.",
+    "serving": "Sering disajikan berlapis dalam gelas bening."
+  },
+  {
+    "label": "cafe_con_leche",
+    "display_name": "Café con Leche",
+    "aliases": [
+      "cafe con leche",
+      "café con leche"
+    ],
+    "tags": [
+      "sweet",
+      "nutty",
+      "caramelized"
+    ],
+    "bitterness": 2,
+    "acidity": 2,
+    "strength": 2,
+    "roast": "medium",
+    "body": "Creamy, medium body",
+    "description": "Kopi dengan susu panas dalam porsi seimbang, menghasilkan rasa yang lembut.",
+    "serving": "Dapat dinikmati saat sarapan atau sebagai kopi harian."
+  },
+  {
+    "label": "vietnamese_iced_coffee",
+    "display_name": "Vietnamese Iced Coffee",
+    "aliases": [
+      "vietnamese iced coffee",
+      "ca phe sua da"
+    ],
+    "tags": [
+      "bold",
+      "sweet",
+      "chocolatey",
+      "caramelized"
+    ],
+    "bitterness": 4,
+    "acidity": 2,
+    "strength": 5,
+    "roast": "dark",
+    "body": "Full body",
+    "description": "Kopi Vietnam dingin yang umumnya dipadukan dengan susu kental manis, menghasilkan karakter kuat dan manis.",
+    "serving": "Disajikan dingin dengan es."
+  },
+  {
+    "label": "cold_brew",
+    "display_name": "Cold Brew",
+    "aliases": [
+      "cold brew"
+    ],
+    "tags": [
+      "smooth",
+      "sweet",
+      "nutty",
+      "fruity"
+    ],
+    "bitterness": 2,
+    "acidity": 2,
+    "strength": 3,
+    "roast": "medium",
+    "body": "Smooth, medium body",
+    "description": "Kopi yang diseduh menggunakan air dingin dalam waktu panjang, sering terasa halus dan rendah kesan pahit.",
+    "serving": "Disajikan dingin, biasanya tanpa susu atau dengan tambahan sesuai selera."
+  },
+  {
+    "label": "iced_coffee",
+    "display_name": "Iced Coffee",
+    "aliases": [
+      "iced coffee",
+      "ice coffee"
+    ],
+    "tags": [
+      "bright",
+      "fruity",
+      "sweet"
+    ],
+    "bitterness": 2,
+    "acidity": 3,
+    "strength": 2,
+    "roast": "light",
+    "body": "Light–medium body",
+    "description": "Kopi dingin dengan karakter yang bervariasi sesuai metode seduh dan campurannya.",
+    "serving": "Disajikan dengan es dan dapat ditambahkan susu atau pemanis."
+  },
+  {
+    "label": "blended_coffee",
+    "display_name": "Blended Coffee",
+    "aliases": [
+      "blended drink",
+      "frappuccino",
+      "blended coffee"
+    ],
+    "tags": [
+      "sweet",
+      "chocolatey",
+      "caramelized"
+    ],
+    "bitterness": 1,
+    "acidity": 1,
+    "strength": 2,
+    "roast": "medium",
+    "body": "Thick, creamy body",
+    "description": "Minuman kopi yang diblender bersama es dan bahan tambahan sehingga teksturnya kental dan creamy.",
+    "serving": "Disajikan dingin dengan tekstur menyerupai frappe."
+  },
+  {
+    "label": "pour_over",
+    "display_name": "Pour Over",
+    "aliases": [
+      "pourover",
+      "pour over",
+      "pour-over",
+      "filter coffee"
+    ],
+    "tags": [
+      "fruity",
+      "bright",
+      "floral",
+      "juicy"
+    ],
+    "bitterness": 2,
+    "acidity": 4,
+    "strength": 3,
+    "roast": "light",
+    "body": "Clean, light–medium body",
+    "description": "Kopi seduh manual yang menonjolkan kejernihan rasa dan karakter biji kopi yang digunakan.",
+    "serving": "Diseduh perlahan menggunakan dripper dan kertas filter."
+  }
+]

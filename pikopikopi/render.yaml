@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: pikopikopi
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATA_DIR
+        value: /var/data
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: COOKIE_SECURE
+        value: "1"
+    disk:
+      name: pikopikopi-data
+      mountPath: /var/data
+      sizeGB: 1
